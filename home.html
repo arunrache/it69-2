@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>โครงการลูกเสือ (IT)</title>
+<!-- เรียกใช้งาน Google Font (Prompt) เพื่อความสวยงาม -->
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* รีเซ็ตค่าเริ่มต้น */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Prompt', sans-serif;
+}
+
+body {
+    /* นำรูปภาพพื้นหลังค่ายลูกเสือเข้ามาใส่ */
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* สไตล์ของ Header */
+header {
+    background-color: rgba(255, 255, 255, 0.95); /* สีขาวแบบโปร่งแสงเล็กน้อย */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* โลโก้เว็บไซต์ */
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2563eb;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* เมนูนำทาง */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 400;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+/* เอฟเฟกต์เวลาเอาเมาส์ชี้ (Hover) และ active ให้เปลี่ยนเป็นสีน้ำเงิน */
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #2563eb;
+}
+
+/* ตั้งค่าเส้นใต้ให้มีความกว้างเริ่มต้นเป็น 0 และวิ่งขยายออกเมื่อ Hover หรือ Active */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #2563eb;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+/* ปุ่มเสริม (CTA Button) */
+.btn-cta {
+    background-color: #2563eb;
+    color: white !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.2s ease !important;
+}
+
+.btn-cta::after {
+    display: none !important;
+}
+
+.btn-cta:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* ส่วนจัดวางเนื้อหาหลัก */
+main {
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 2.5rem;
+    /* เพิ่มการแสดงผลการ์ดกระจกฝ้า (Glassmorphism) ทำให้อ่านข้อความบนภาพพื้นหลังได้ง่าย */
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+}
+
+.main-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #1e3a8a;
+}
+
+/* เลย์เอาต์จัดรูปภาพและวัตถุประสงค์ให้อยู่ข้างกัน */
+.content-wrapper {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.image-container img {
+    width: 290px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.objective-container {
+    flex: 1;
+}
+
+.objective-container h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    color: #2563eb;
+}
+
+.objective-container h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    background-color: rgba(243, 244, 246, 0.8);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #2563eb;
+}
+
+/* Responsive สำหรับมือถือ */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+    }
+    .navbar {
+        padding: 1rem;
+    }
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .image-container img {
+        width: 100%;
+    }
+    main {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Header เริ่มต้นตรงนี้ -->
+<header>
+<nav class="navbar">
+<!-- โลโก้ -->
+<div class="logo">
+<a href="home.html">โครงการ ลูกเสือ กลุ่ม2กลอง3หมู่1</a>
+</div>
+
+<!-- รายการเมนู (ใส่ class="active" ไว้ที่ หน้าหลัก) -->
+<ul class="nav-links">
+<li><a href="home.html" class="active">หน้าหลัก</a></li>
+<li><a href="about.html">About</a></li>
+</ul>
+</nav>
+</header>
+<!-- สิ้นสุด Header -->
+
+<main>
+<h1 class="main-title">ชื่อโครงการ ชั้นวางรองเท้าชาวค่าย</h1>
+
+<div class="content-wrapper">
+<!-- ด้านข้างซ้าย: รูปภาพ -->
+<div class="image-container">
+<img src="ภาพถ่ายหน้าจอ 2569-11-04 เวลา 08.56.30.png" alt="ชั้นวางรองเท้าชาวค่าย">
+<br>
+<img src="ปลากรอบ.jpg" alt="ปลากรอบ">
+<h3>(ภาพปลากรอบ)</h3>
+</div>
+
+<!-- ด้านข้างขวา: วัตถุประสงค์ทั้ง 8 ข้อ -->
+<div class="objective-container">
+<h2>วัตถุประสงค์</h2>
+
+<h3>1. เพื่อความเป็นระเบียบเรียบร้อย<br>ส่งเสริมความเป็นระเบียบวินัย</h3>
+
+<h3>2. เพื่อสุขอนามัยและสิ่งแวดล้อมที่ดี<br>ช่วยให้บริเวณทางเข้าอาคารดูสบายตา</h3>
+
+<h3>3. เพื่อยืดอายุการใช้งานของรองเท้า<br>และป้องกันรองเท้าสูญหายหรือสลับกัน</h3>
+
+<h3>4. เพื่อฝึกฝนทักษะวิชาลูกเสือ<br>ด้านการต่อพงพนาและการประดิษฐ์ของใช้ในค่าย</h3>
+
+<h3>5. เพื่อส่งเสริมความสามัคคีและการทำงานร่วมกันเป็นทีม<br>ภายในหมู่ลูกเสือ</h3>
+
+<h3>6. เพื่อสร้างจิตสำนึกในการดูแลรักษาทรัพย์สินส่วนรวม<br>และการใช้พื้นที่ร่วมกัน</h3>
+
+<h3>7. เพื่อใช้เวลาว่างให้เกิดประโยชน์<br>สร้างสรรค์นวัตกรรมและสิ่งประดิษฐ์อย่างคุ้มค่า</h3>
+
+<h3>8. เพื่อนำวัสดุที่มีอยู่มาใช้ประโยชน์สูงสุด<br>อย่างประหยัดและพอเพียง</h3>
+</div>
+</div>
+</main>
+
+</body>
+</html>
